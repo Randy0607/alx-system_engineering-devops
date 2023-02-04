@@ -3,7 +3,7 @@
 ## 504 Error while accessing a given URL
 
 
-### Incident report for [504 error / Site Outage](https://github.com/MitaliSengupta/holberton-system_engineering-devops/tree/master/0x17-web_stack_debugging_3)
+### Incident report for [504 error / Site Outage]https://github.com/Randy0607/alx-system_engineering-devops/tree/master/0x19-postmortem
 
 #### Summary
 
