@@ -1,25 +1,17 @@
 #!/usr/bin/python3
-"""
-Python script
-"""
-import requests
+"""Module for task 0"""
 
 
 def top_ten(subreddit):
-    """function that queries the Reddit API and prints
-    the titles of the first 10 hot posts listed for a given subreddit
-    """
-    url = 'https://www.reddit.com/r/' + subreddit + '/hot.json'
-    params = {'limit': 10}
-    headers = {'User-agent': 'BotHeiny'}
-    try:
-        response = requests.get(url,
-                                headers=headers,
-                                params=params,
-                                allow_redirects=False).json()
-        data = response['data']['children']
-        for listing in data:
-            title = listing.get('data').get('title')
-            print(title)
-    except:
-        print('None')
+    """Queries the Reddit API and returns the top 10 hot posts
+    of the subreddit"""
+    import requests
+
+    sub_info = requests.get("https://www.reddit.com/r/{}/about.json"
+                            .format(subreddit),
+                            headers={"User-Agent": "My-User-Agent"},
+                            allow_redirects=False)
+    if sub_info.status_code >= 300:
+        return 0
+
+    return sub_info.json().get("data").get("subscribers")
